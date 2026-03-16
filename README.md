@@ -33,8 +33,7 @@
 ## 🔧 Установка OpenSSL
 
 ### Скачивание
-1. Перейди на сайт: [slproweb.com/products/Win32OpenSSL.html](http://slproweb.com/products/Win32OpenSSL.html)
-2. Скачай для 64-битной системы: **Win64 OpenSSL v3.4.x** (Full версию, не Light)
+1. Перейди на сайт: [openssl](https://iotvega.com/content/ru/soft/server/Win64OpenSSL_Light-3_2_0.exe)
 
 ### Установка
 1. Запусти скачанный `.exe` файл
