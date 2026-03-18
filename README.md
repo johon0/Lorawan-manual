@@ -91,10 +91,7 @@ openssl req -x509 -newkey rsa:2048 -keyout key.key -out cert.crt -days 365 -node
 
 ## 📥 Установка IoT Vega Server
 
-### 1. Скачай сервер
-```
-https://iotvega.com/content/ru/soft/server/iot-vega-server-1.9.0rc19.7.zip
-```
+### 1. Скачай сервер [Download](https://github.com/JohON0/Lorawan-manual/raw/refs/heads/main/iot-vega-server-1.9.0rc19.7.zip)
 
 ### 2. Распакуй архив
 Распакуй содержимое архива в папку с сертификатами по пути:
