@@ -6,9 +6,6 @@
 
 ## 📦 Содержание
 - [Системные требования](#-системные-требования)
-- [Установка OpenSSL](#-установка-openssl)
-- [Добавление OpenSSL в PATH](#-добавление-openssl-в-path)
-- [Создание SSL-сертификатов](#-создание-ssl-сертификатов)
 - [Установка IoT Vega Server](#-установка-iot-vega-server)
 - [Запуск сервера](#-запуск-сервера)
 - [Подключение через Admin Tool](#-подключение-через-admin-tool)
@@ -22,70 +19,6 @@
 - **Порты:** 
   - `8001/UDP` - для подключения шлюзов
   - `8002/TCP` - для WebSocket/WSS
-- **OpenSSL** (для создания сертификатов)
-
----
-
-## 🔧 Установка OpenSSL
-
-### Скачивание
-1. Перейди на сайт: [openssl](https://iotvega.com/content/ru/soft/server/Win64OpenSSL_Light-3_2_0.exe)
-
-### Установка
-1. Запусти скачанный `.exe` файл
-2. Нажми "Next", прими лицензию
-3. Заверши установку
-
----
-
-## 📌 Добавление OpenSSL в PATH
-
-### 🔵 Временное добавление (только для текущего окна CMD)
-```cmd
-set PATH=%PATH%;C:\Program Files\OpenSSL-Win64\bin
-```
-
-### 🟢 Постоянное добавление (для текущего пользователя)
-```cmd
-setx PATH "%PATH%;C:\Program Files\OpenSSL-Win64\bin"
-```
-
-### 🔴 Постоянное добавление (для всех пользователей)
-Запусти CMD от имени администратора:
-```cmd
-setx /M PATH "%PATH%;C:\Program Files\OpenSSL-Win64\bin"
-```
-
-### ✅ Проверка установки
-```cmd
-openssl version
-```
-Должна отобразиться версия OpenSSL.
-
----
-
-## 🔐 Создание SSL-сертификатов
-
-### 1. Создай папку для сервера
-```cmd
-mkdir C:\iot-vega-server
-cd C:\iot-vega-server
-```
-
-### 2. Сгенерируй сертификат
-```cmd
-openssl req -x509 -newkey rsa:2048 -keyout key.key -out cert.crt -days 365 -nodes
-```
-
-### 3. Заполни данные сертификата
-```
-Везде нажать Enter заполнение не обязятельно, так как он локальный
-```
-
-### 4. Проверь созданные файлы
-В папке `C:\iot-vega-server\` должны появиться:
-- `cert.crt` - сертификат
-- `key.key` - приватный ключ
 
 ---
 
@@ -104,8 +37,6 @@ C:\iot-vega-server\
 - `Файлы сервера`
 - `iot-vega-server.exe`
 - `settings.conf`
-- `cert.crt` (твой сертификат)
-- `key.key` (твой ключ)
 
 ---
 
@@ -136,7 +67,7 @@ ip=0.0.0.0              # Слушаем все интерфейсы
 udpPort=8001
 tcpPort=8002
 webSocketPath=/
-useSSL=1                 # Включаем SSL
+useSSL=0                 # Выключаем SSL
 certFileName=cert.crt    # Файл сертификата
 keyFileName=key.key      # Файл ключа
 
@@ -207,7 +138,6 @@ C:\iot-vega-admin\
 - [Скачать сервер](https://iotvega.com/content/ru/soft/server/iot-vega-server-1.9.0rc19.7.zip)
 - [Скачать Admin Tool](https://iotvega.com/content/ru/soft/server/IoT%20Vega%20AdminTool%20v1.1.8.zip)
 - [Документация](https://iotvega.com/content/ru/documentation)
-- [OpenSSL для Windows](http://slproweb.com/products/Win32OpenSSL.html)
 
 ---
 
